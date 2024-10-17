@@ -14,7 +14,7 @@ export class AppService {
       validationErrors["name"] = "Név mező nem lehet üres.";
     }
 
-    if(!data.email.includes("@") || data.email.split('@')[0].length == 0 || data.email.split('@')[1].length == 0){
+    if(!data.email.includes("@") || data.email.split('@')[0].length == 0 || data.email.split('@')[1].length == 0){ // nem tudom, baj e hogy nem regexet használok, de a feladat nem kérte, és nekem ez szimpatikusabb
       validationErrors["email"] = "Érvénytelen e-mail cím.";
     }
     
