@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megrendelés</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <form method="post">
+            <div class="form-group">
+            <label for="name">Név:</label>
+            <input type="text" id="name" name="name" value="<%= formData?.name || '' %>">
+            <% if (Object.keys(errors).includes("name")) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= errors["name"] %>
+                </div>
+            <% } %>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" value="<%= formData?.email || '' %>">
+                <% if (Object.keys(errors).includes("email")) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= errors["email"] %>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Dátum:</label>
+                <input type="datetime-local" id="date" name="date" value="<%= formData?.date || '' %>"">
+                <% if (Object.keys(errors).includes("date")) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= errors["date"] %>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+                <label for="numberOfGuests">Vendégek száma:</label>
+                <input type="number" id="numberOfGuests" name="numberOfGuests" value="<%= formData?.numberOfGuests || '' %>"">
+                <% if (Object.keys(errors).includes("numberOfGuests")) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= errors["numberOfGuests"] %>
+                    </div>
+                <% } %>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Foglalás</button>
+        </form>
+    </div>
+</body>
+
+</html>
